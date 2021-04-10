@@ -27,6 +27,9 @@ buildscript {
             'rxAdapter'           : '2.9.0',
             'retrofit'            : '2.9.0',
             'room'                : '2.2.6',
+            'rxKotlin'              : '3.0.1',
+            'rxJava'                : '3.0.10',
+            'rxAndroid'             : '3.0.0',
 
             /* Unit Test */
             'junit'               : '4.13',

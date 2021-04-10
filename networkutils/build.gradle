@@ -65,6 +65,11 @@ dependencies {
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
 
+    /* RX */
+    api "io.reactivex.rxjava3:rxandroid:$versions.rxAndroid"
+    api "io.reactivex.rxjava3:rxjava:$versions.rxJava"
+    api "io.reactivex.rxjava3:rxkotlin:$versions.rxKotlin"
+
     /* Firebase */
     api("com.google.firebase:firebase-analytics-ktx:$versions.firebaseAnalytics") {
         exclude group: 'com.android.support'
