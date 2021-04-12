@@ -1,5 +1,6 @@
 package com.tiagomdosantos.networkutils.lib.extensions
 
+import com.tiagomdosantos.networkutils.lib.objects.Constants.DEFAULT_WAIT_TIME_MILLIS
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
@@ -26,7 +27,7 @@ private fun <T> Observable<T>.observeOnMainThread(): Observable<T> =
     observeOn(AndroidSchedulers.mainThread())
 
 fun <T> Observable<T>.saveMainThread(): Observable<T> = subscribeOnIo().observeOnMainThread()
-fun <T> Observable<T>.debounce(): Observable<T> = debounce(500, TimeUnit.MILLISECONDS)
+fun <T> Observable<T>.debounce(): Observable<T> = debounce(DEFAULT_WAIT_TIME_MILLIS, TimeUnit.MILLISECONDS)
 //endregion
 
 //region --- Single ---

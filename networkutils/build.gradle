@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id 'io.gitlab.arturbosch.detekt' version '1.5.1'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
@@ -7,17 +8,21 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion versions.compileSdk
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        renderscriptSupportModeEnabled true
+        vectorDrawables.useSupportLibrary true
+
     }
 
     buildFeatures {
@@ -42,6 +47,7 @@ android {
 
 apply from: 'publish.gradle'
 apply from: 'ktlint.gradle'
+apply from: 'detekt.gradle'
 
 dependencies {
     /* Ktlint */
@@ -54,6 +60,9 @@ dependencies {
 
     /* Multidex */
     api "androidx.multidex:multidex:$versions.multidex"
+
+//    detekt("io.gitlab.arturbosch.detekt:detekt-formatting:$versions.detekt")
+//    detekt("io.gitlab.arturbosch.detekt:detekt-cli:$versions.detekt")
 
     /* Koin */
     api "org.koin:koin-androidx-fragment:$versions.koin"
