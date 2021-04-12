@@ -4,7 +4,10 @@ import retrofit2.Response
 
 sealed class ApiResult<out T> {
     data class Success<out T>(val data: T) : ApiResult<T>()
-    data class Error(val exception: Exception, val message: String = exception.localizedMessage.orEmpty()) : ApiResult<Nothing>()
+    data class Error(
+        val exception: Exception,
+        val message: String = exception.localizedMessage.orEmpty()
+    ) : ApiResult<Nothing>()
 }
 
 fun <T : Any> handleError(response: Response<T>): ApiResult.Error {
